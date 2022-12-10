@@ -1,2 +1,3 @@
-# 2022-1-CECD3-LJC-10
-Aws ec2 인스턴스 생성 및 binwalk 설치 완료
+# LJC_engine
+
+pip install -r requirement.txt 로 패키지 설치
