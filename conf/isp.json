@@ -1,0 +1,28 @@
+{
+	"isp_setting": {
+		"dev_path":"/dev/video51",
+		"anti_flicker":1,
+		"white_balance":1,
+		"awb_temperture":2800,
+		"mirror":0,
+		"flip":0,
+		"dehaze":0,
+		"ldc":0,
+		"temporal_denoise":0,
+		"gamma":300,
+		"brightness":0,
+		"contrast":50,
+		"saturation":50,
+		"sharpness":50,
+		"rotate":0,
+		"wdr_mode":0,
+		"wdr_level":64,
+		"ir_mode":0,
+		"smart_ir_mode":0,
+		"smart_ir_level":64,
+	},
+	"ir_setting":{
+		"gpio_number":3,
+		"gpio_level":1
+	}
+}

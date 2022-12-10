@@ -1,0 +1,31 @@
+{ "generic":{
+		"max_rtsp_connections":"16",
+		"max_http_connections":"16",
+		"http_port":"43791",
+		"rtsp_port":"43794",
+		"rtsp_auth":"disable",
+		"ffmpath":"/var/tmp",
+		"record_path":"/media/sdcard",
+	},
+
+	"profiles":[
+		{
+			"name":"profile1",
+			"video":"/dev/video51", "input_demuxer":"rs_isp", "video_size":"1280x720", "framerate":"15", "pixel_format":"nv12", "ffm_video":"profile1.shm", "ffm_buf_second":"5", "codec_video":"h264", "v4l2_bufs":"2", "keyframe":"15", "bitrate":"1048576", "intra_qp_delta":"-4", "h264_flag":"0", "h264_enableCabac":"1", "h264_transform8x8Mode":"2", "h264_qpMin":"10", "h264_qpMax":"51", "h264_level":"h264_level_4", "h264_rs_rc_en":"0",
+			"h264_cvbr_en":"0", "h264_cvbr_max_bitrate":"2097152", "h264_cvbr_min_bitrate":"524288",
+			"mbrc_en":"1", "mbrc_qp_gain":"1.6", "mbrc_qp_delta_range":"10",
+			"audio":"hw:0,1", "audio_out":"hw:0,1", "ffm_audio":"pcmC0D0c.shm", "codec_audio":"pcm_mulaw", "capture_volume":"100", "playback_volume":"100", "in_sample_rate":"8000", "in_channels":"2", "in_sample_format":"pcm_s16le", "out_sample_rate":"8000", "out_channels":"2", "out_sample_format":"pcm_s16le", "codec_sample_rate":"8000", "codec_channels":"1", "bitrate_audio":"48000", "aec_en":"0", "ns_en":"0", "aec_spk_delay":"0", "ns_level":"40",
+			"type":"live",
+			"snapshot":"enable", "snapshot_shm":"profile1_snapshot.shm",
+		},
+		{
+			"name":"profile2",
+			"video":"/dev/video52", "input_demuxer":"rs_isp", "video_size":"640x480", "framerate":"15", "pixel_format":"nv12", "ffm_video":"profile2.shm", "ffm_buf_second":"5", "codec_video":"h264", "v4l2_bufs":"2", "keyframe":"15", "bitrate":"262144", "intra_qp_delta":"-4", "h264_flag":"0", "h264_enableCabac":"1", "h264_transform8x8Mode":"0", "h264_qpMin":"10", "h264_qpMax":"51", "h264_level":"h264_level_4_1", "h264_rs_rc_en":"0",
+			"h264_cvbr_en":"0", "h264_cvbr_max_bitrate":"1048576", "h264_cvbr_min_bitrate":"524288",
+			"mbrc_en":"1", "mbrc_qp_gain":"1.6", "mbrc_qp_delta_range":"10",
+			"audio":"hw:0,1", "audio_out":"hw:0,1", "ffm_audio":"pcmC0D0c.shm", "codec_audio":"pcm_mulaw", "capture_volume":"100", "playback_volume":"100", "in_sample_rate":"8000", "in_channels":"2", "in_sample_format":"pcm_s16le", "out_sample_rate":"8000", "out_channels":"2", "out_sample_format":"pcm_s16le", "codec_sample_rate":"8000", "codec_channels":"1", "bitrate_audio":"48000", "aec_en":"0", "ns_en":"0", "aec_spk_delay":"0", "ns_level":"40",
+			"type":"live",
+			"snapshot":"disable", "snapshot_shm":"profile2_snapshot.shm",
+		},
+	],
+}

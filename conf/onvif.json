@@ -1,0 +1,48 @@
+{
+	"generic": {
+		"server_port": "8080",
+		"need_auth": "1",
+		"https_enable": "0",
+		"https_ca_path": "/var/conf/ssl.ca",
+		"https_key_path": "/var/conf/ssl.key",
+		"Manufacturer": "Realsil",
+		"SerialNumber": "012345678",
+		"HardwareId" : "abcdefghijk",
+	},
+
+	"capability": {
+		"discovery_mode": "1",
+	},
+
+	"user":[
+	{
+		"comment": "This is a wss-usernametoke-profile user, remove it if you dont need wss authentication. http digest authentication use global password file",
+		"name":"admin",
+		"password":"123456",
+		"userlevel":"Administrator",
+		"fixed": "1",
+	},
+	],
+
+	"scope":[
+		"onvif://www.onvif.org/hardware/RTS3903",
+		"onvif://www.onvif.org/Profile/Streaming",
+		"onvif://www.onvif.org/location/country/china",
+		"onvif://www.onvif.org/location/city/suzhou",
+		"onvif://www.onvif.org/type/video_encoder",
+		"onvif://www.onvif.org/name/IP-Camera",
+	],
+
+	"scope_configurable": [
+
+	],
+
+	"event": {
+	"renew_interval": "10",
+	"simulate_enable": "0",
+	"simulate_interval": "30"
+	},
+
+	"profiles": [
+	],
+}

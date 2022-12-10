@@ -1,0 +1,8 @@
+{
+	"ntp_enable":"true",
+	"dst_enable":"false",
+	"ntp_cur_addr":"cn.ntp.org.cn",
+	"ntp_server_address":["cn.ntp.org.cn","edu.ntp.org.cn","tw.ntp.org.cn"],
+	"ntp_type":"buildin",
+	"ntp_update_interval":"1800"
+}

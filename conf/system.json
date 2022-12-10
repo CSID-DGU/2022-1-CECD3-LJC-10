@@ -1,0 +1,18 @@
+{
+
+	"profiles":[
+		{
+			"name":"profile1",
+			"video":"/dev/video51",  "pixel_format":"nv12", "ffm_video":"profile1.shm", "ffm_buf_second":"5", "codec_video":"h264", "v4l2_bufs":"0",
+			"snapshot":"enable", "snapshot_shm":"profile1_snapshot.shm",
+			"audio":"hw:0,1", "audio_out":"hw:0,1", "ffm_audio":"pcmC0D0c.shm",
+			"type":"live",
+		},
+		{
+			"name":"profile2",
+			"video":"/dev/video52", "pixel_format":"nv12", "ffm_video":"profile2.shm", "ffm_buf_second":"5", "codec_video":"h264", "v4l2_bufs":"0",
+			"audio":"hw:0,1", "audio_out":"hw:0,1", "ffm_audio":"pcmC0D0c.shm",
+			"type":"live",
+		},
+	],
+}
