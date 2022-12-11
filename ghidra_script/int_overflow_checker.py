@@ -35,12 +35,15 @@ def check_int_overflow(path):
     text = []
     num = 0
 
-    with pyhidra.open_program(path, project_location=r"C:\Users\jjh96\Desktop\reversing\exam",
+    with pyhidra.open_program(path, project_location=r".\exam",
                               analyze=False) as flat_api:
         print('[+] Checking possibility of int overflow....')
         print('--------')
         text.append(str('[+] Checking possibility of int overflow....') + '\n')
+        from ghidra.program.util import GhidraProgramUtilities
         program = flat_api.getCurrentProgram()
+        if GhidraProgramUtilities.shouldAskToAnalyze(program):
+            flat_api.analyzeAll(program)
         fm = program.getFunctionManager()
         functions = [func for func in fm.getFunctions(True)]
         # vuln group for json dump
@@ -64,7 +67,9 @@ def check_int_overflow(path):
         else:
             print("This target does not contain interesting sink(s). Done.")
             text.append("This target does not contain interesting  sink(s). Done." + '\n')
-            return
+            result['text'] = text
+            result['num'] = num
+            return result
 
         # ====================================================================
         #sink와 source를 call하는 함수를 찾음
@@ -85,7 +90,10 @@ def check_int_overflow(path):
         if len(interesting_functions) <= 0:
             print("\nNo interesting functions found to analyze. Done.")
             text.append("\nNo interesting functions found to analyze. Done." + '\n')
-            return
+            result['text'] = text
+            result['num'] = num
+            return result
+
         else:
             print("\nFound {} interesting functions to analyze:".format(len(interesting_functions)))
             text.append(str("\nFound {} interesting functions to analyze:".format(len(interesting_functions))) + '\n')

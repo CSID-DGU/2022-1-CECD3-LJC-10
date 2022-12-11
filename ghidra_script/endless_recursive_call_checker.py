@@ -15,7 +15,7 @@ from ghidra.program.model.pcode import VarnodeAST
 from ghidra.util.task import ConsoleTaskMonitor
 from ghidra.app.plugin.core.osgi import BundleHost
 #CWE-674 패턴을 검출
-sources = [
+sinks = [
     'INT_EQUAL',
     'INT_NOTEQUAL',
     'INT_LESS',
@@ -51,13 +51,15 @@ def check_endl_recall(path):
     text = []
     num = 0
 
-    with pyhidra.open_program(path, project_location=r"C:\Users\jjh96\Desktop\reversing\exam",
+    with pyhidra.open_program(path, project_location=r".\exam",
                               analyze=False) as flat_api:
         print('[+] Checking possibility of endless recursive call....')
         print('--------')
         text.append(str('[+] Checking possibility of endless recursive call....') + '\n')
+        from ghidra.program.util import GhidraProgramUtilities
         program = flat_api.getCurrentProgram()
-        #flat_api.analyzeAll(program)
+        if GhidraProgramUtilities.shouldAskToAnalyze(program):
+            flat_api.analyzeAll(program)
         fm = program.getFunctionManager()
         functions = [func for func in fm.getFunctions(True)]
 
@@ -109,7 +111,7 @@ def check_endl_recall(path):
             print(local_variables)
             print('\n\n')
             call_args = []
-            sources_args = []
+            sinks_args = []
             interesting_args = []
             # 함수를 디컴파일 해서 pcode를 가져올수 있게 만듬
             hf = get_high_function(func, program)
@@ -128,10 +130,10 @@ def check_endl_recall(path):
                         #print('\n\n')
                         #print(op)
                         #print('\n\n')
-                elif mnemonic in sources:
-                    sources_args = op.getInputs()
+                elif mnemonic in sinks:
+                    sinks_args = op.getInputs()
             for s in call_args:
-                if s in sources_args:
+                if s in sinks_args:
                     interesting_args.append(s)
             if interesting_args is None:
                 print("  Function {} is Safe".format(func.name))
